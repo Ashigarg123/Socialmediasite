@@ -1,0 +1,250 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <meta charset="utf-8">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    <!---->
+
+    </script>
+    <link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+    <title>SocialBook!</title>
+
+
+
+
+<style>
+  body{
+    background-color: #80dfff;
+  }
+  .navbar a {
+
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    width: 15%; /* Four links of equal widths */
+    text-align: center;
+  }
+  @media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+}
+
+  </style>
+  </head>
+  <body>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+    <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+            <div class="container-fluid" style="width: 100%">
+
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                           <h1 class="navbar-text px-3" style="color:white"> SocialBook <i class='fab fa-leanpub' style='font-size:48px;color:#80dfff'></i></h1>
+                          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+
+     <li class="nav-item active">
+                            <a class="nav-item nav-link" href="{% url 'about' %}">About <i class='far fa-laugh-beam' style='font-size:24px'></i></a></li>
+
+
+                            {% if user.is_authenticated %}
+                            <li class="nav-item active">
+                                                   <a class="nav-item nav-link px-3" href="{% url 'contact' %}">Contact <i class="fa fa-envelope"></i></a></li>
+                            <li class="nav-item active">
+                              <a class="nav-link px-3" href="{% url 'post' %}">MyPost</a>
+                            </li>
+                            <li class="nav-item active">
+                              <a class="nav-link px-3" href="{% url 'myprofile' %}">Profiles</a>
+                            </li>
+                            <li class="nav-item active">
+                              <a class="nav-link px-3" href="{% url 'account_logout' %}">Logout <i class="fa fa-user-circle"></i></a>
+                            </li>
+                            <li class="nav-item active">
+                              <a class="nav-link px-3" href="{% url 'profile'  %}">Edit Profile</a>
+                            </li>
+
+
+                            {% else %}
+                            <li class="nav-item active">
+                              <a class="nav-link px-3" href="{% url 'account_login' %}">Login <i class="fa fa-user-circle"></i></a>
+                            </li>
+                              {% endif %}
+
+                              {% if user.is_superuser %}
+                              <li class="nav-item active">
+                                <a class="nav-link px-3" href="/admin/">Admin</a>
+                              </li>
+
+
+                              {% endif %}
+                            <li class="nav-item active">
+                                    <a class="nav-link px-3" href="#">
+                                      <i class="fab fa-facebook-f" ></i>
+                                      <span class="sr-only">(current)</span>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item active">
+                                          <a class="nav-link px-3" href="#">
+                                            <i class="fa fa-linkedin-square" style="font-size:36px; color: white"></i>
+                                            <span class="sr-only">(current)</span>
+                                          </a>
+                                        </li>
+
+                                        <form>
+
+                                      <h1 style="color: white;"> Search by post subject here </h1>
+                                          <input value="{{ request.GET.si }}" type="text" name="si" />
+                                          <input type="submit" value="Search" />
+                                          </form>
+
+    </div>
+                    </div>
+                </nav>
+            </div>
+
+<!--/.Navbar-->
+{% block messages %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{message}}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}
+
+  <div class="container" style="text-align:center; ">
+    <h1>Hello Welcome to home page <i class='fas fa-grin' style='font-size:36px; color:white'></i></h1>
+  <!--  <form>
+      <input value="{{ request.GET.si }}" type="text" name="si" />
+      <input type="submit" value="Search" />
+    </form> -->
+    </div>
+      <div class="container" style="text-align:center; ">
+    <div class="row">
+      {% for x in mypost_list %}
+      <div class="col-md-12" style="text-align:center; background-color:white">
+      <div class="card" style="width: 60%; height: 40%;text-align:center">
+  <img class="card-img-top" src="/media/{{x.pic}}" alt="Card image cap" style="width:100%;text-align:center">
+  <div class="card-body" style="text-align:center;text-align:center">
+    <h5 class="card-title">{{x.subject}}</h5>
+    <p class="card-text">{{x.cr_date | date:"d/m/y"}}</p>
+    <p class="card-text"> Uploaded By - {{x.uploaded_by}}
+    {% if x.uploaded_by.pic %}
+    <img style="width: 50px; height:50px;" class="rounded-circle" src="/media/{{x.uploaded_by.pic}}">
+
+    {% endif %}</p>
+    <!--{% if x.liked %}
+    <a  href="{% url 'unlike' x.id %}"><i class="fa fa-heart" aria-hidden="true"style=" color:red;font-size:36px"></i>
+</a>
+    {% else %}
+    <a href="{% url 'like' x.id %}"><i class="fa fa-heart" aria-hidden="true" style="color: LightGray; font-size:25px"></i>
+</a>
+{% endif %}-->
+<div id="like-section">
+  {% if x.liked %}
+  <a  href="{% url 'unlike' x.id %}" id="like"><i class="fa fa-heart" aria-hidden="true"style=" color:red;font-size:36px"></i>
+
+  </a>
+  {% else %}
+  <a href="{% url 'like' x.id %}" id="dislike"><i class="fa fa-heart" aria-hidden="true" style="color: LightGray; font-size:25px"></i>
+  </a>
+  {% endif %}
+
+</div>
+<a  href="#"><i class="fa fa-thumbs-up" aria-hidden="true"style=" color:blue;font-size:36px"></i> {{x.likecount}}
+</a>
+
+    <a  href="{% url 'particular' x.id %}" class="btn btn-primary">Know more</a>
+    {% if user.is_superuser %}
+      <a class="btn btn-danger btn-sm"href="{%url 'delete' x.id %}"> <span class="fa fa-trash"></span> </a>
+
+      {% endif %}
+
+  </div>
+
+
+</div>
+
+</div>
+
+{% endfor %}
+
+
+
+</div>
+<!--<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>-->
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</body>
+<footer style="background-color:black;">
+  <p> Copyright @ ASHI GARG<br>
+  <a href="mailto:danieloyle27@gmail.com">danieloyle27@gmail.com</a></p>
+</footer>
+</html>
