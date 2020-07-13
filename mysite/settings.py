@@ -22,7 +22,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'zk(g@+z7m5#kp^+bz(wf2wr-f*s^!yxb+54hy=7x&#r+#x$3_v'
+SECRET_KEY = 'SECRET'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -161,11 +161,11 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 EMAIL_BACKEND= "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST= "smtp.gmail.com"
-EMAIL_HOST_USER= "danieloyle27@gmail.com"
-EMAIL_HOST_PASSWORD= "1234@daniel$"
+EMAIL_HOST_USER= "Your email address here'
+EMAIL_HOST_PASSWORD= "password"
 EMAIL_PORT= 587
 EMAIL_USE_TLS= True
-DEFAULT_FROM_EMAIL= "danieloyle27@gmail.com"
+DEFAULT_FROM_EMAIL= "email address again"
 
 # To upload media & files.
 ACCOUNT_LOGOUT_ON_GET = True
